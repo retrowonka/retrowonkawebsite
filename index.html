@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>retrowonka</title>
+  <link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="images/firefooter.gif">
+<link rel="preload" as="image" href="images/hole.gif">
+<link rel="preload" as="image" href="images/artcore-guts.gif">
+<link rel="preload" as="image" href="images/artcore-border.png">
+<link rel="preload" as="image" href="images/background-brick.png">
+<link rel="preload" as="image" href="images/blog-wastenew.gif">
+<link rel="preload" as="image" href="images/copylogo.png">
+</head>
+
+<body style="background-color: rgb(67, 67, 67);">
+  <div class="scale-wrapper">
+<div class="parallax-bg" ></div>
+  <!-- HEADER -->
+  <header>
+   <nav class="nav-chain">
+  <img src="images/chain-header.png" alt="header chain" class="chain-img">
+
+  <div class="nav-content">
+    <div class="nav-links">
+      <a href="index.html"><img src="images/buttonHOMEmos.png" alt="Home"></a>
+      <a href="art.html"><img src="images/buttonARTmos.png" alt="Art"></a>
+      <a href="shop.html"><img src="images/buttonSHOPmos.png" alt="Shop"></a>
+      <a href="blog.html"><img src="images/buttonBEANSmos.png" alt="Blog"></a>
+    </div>
+
+    <div class="logo-wrapper">
+      <a href="index.html">
+        <img src="images/websitelogo.png" alt="retrowonka logo" class="logo">
+      </a>
+    </div>
+  </div>
+</nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <img src="images/hole.gif" alt="Wonkskele gif" class="hero-gif">
+    <h1>welcome to wonka's world. scroll or get lost.</h1>
+  </section>
+
+  <!-- FEATURED ART SECTION -->
+   <div class="artcore-wrapper">
+      <div class="artcore-bg"></div> <!-- the guts gif background -->
+    <div class="artcore-border-wrapper">
+<img src="images/artcore-border.png" alt="Border" class="artcore-border">
+  </div>
+  <section class="featured-art">
+  <h2>artcore.exe</h2>
+  <div class="art-grid-wrapper">
+  <div class="art-grid">
+    <div class="art-piece">
+      <a href="art.html?show=art1f">
+  <img src="images/art1.png" alt="garden of wonka land">
+  <p>garden of wonka land</p>
+</a>
+    </div>
+    <div class="art-piece">
+      <a href="art.html?show=art2f">
+  <img src="images/art2.png" alt="skelewar">
+  <p>skelewar</p>
+</a>
+    </div>
+    <div class="art-piece">
+      <a href="art.html?show=art3f">
+  <img src="images/art3.png" alt="bitemyownswag">
+  <p>bitemyownswag</p>
+</a>
+    </div>
+    <div class="art-piece">
+      <a href="art.html?show=art4f">
+  <img src="images/art4.png" alt="wonkalps">
+  <p>wonkalps</p>
+</a>
+    </div>
+  </div>
+  </div>
+</section>
+  <img src="images/artcore-border.png" class="artcore-border">
+    </div>
+
+
+<section class="latest-blogs">
+  <div class="latest-blogs-bg">
+  <h2 class="latest-title">latest blogs</h2>
+  <div class="blog-preview-grid" id="latest-blog-previews">
+
+  </div>
+  </div>
+</section>
+
+
+<div class="copyright" style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: -100px; margin-bottom: -400px;">
+  <p style="font-size: 60px; text-align: center;">
+    &copy; retrowonka 2025
+    <img src="images/copylogo.png" class="artlogo" alt="footer icon" style="height: 200px; vertical-align: middle; margin-left: -90px;">
+  </p>
+</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="about.html">about me</a>
+      <a href="contact.html">contact</a>
+      <a href="terms.html">terms</a>
+    </div>
+  </footer>
+<script src="js/parallax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const latestPosts = ['post5.md', 'post4.md', 'post3.md']; // Order: newest first
+  const container = document.getElementById('latest-blog-previews');
+
+  latestPosts.slice(0, 3).forEach(file => {
+    fetch(`posts/${file}`)
+      .then(res => res.text())
+      .then(md => {
+        let frontmatter = {};
+        let body = md;
+
+        if (md.startsWith('---')) {
+          const parts = md.split('---');
+          const fm = parts[1].trim().split('\n');
+          body = parts.slice(2).join('---').trim();
+
+          fm.forEach(line => {
+            const [key, ...rest] = line.split(':');
+            if (key && rest.length) {
+              frontmatter[key.trim()] = rest.join(':').trim();
+            }
+          });
+        }
+
+        // Build preview block
+        const preview = document.createElement('a');
+        preview.className = 'blog-preview';
+        preview.href = `blog.html?post=${file}`;
+        preview.innerHTML = `
+          <img src="${frontmatter.image || 'images/default.png'}" alt="${frontmatter.title || ''}">
+          <h3>${frontmatter.title || 'Untitled Post'}</h3>
+          <p>${frontmatter.date || ''}</p>
+        `;
+        container.appendChild(preview);
+      })
+      .catch(err => {
+        console.error(`Failed to load ${file}:`, err);
+      });
+  });
+</script>
+</div>
+</div>
+</body>
+</html>

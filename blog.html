@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>retrowonka</title>
+  <link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="images/firefooter.gif">
+  <link rel="preload" as="image" href="images/chain-header.png">
+<link rel="preload" as="image" href="images/copylogo.png">
+</head>
+
+<body style="background-color: rgb(35, 62, 143);">
+<div class="scale-wrapper">
+<div class="parallax-bg-blog"></div>
+  <!-- HEADER -->
+ <header>
+   <nav class="nav-chain">
+  <img src="images/chain-header.png" alt="header chain" class="chain-img">
+
+  <div class="nav-content">
+    <div class="nav-links">
+      <a href="index.html"><img src="images/buttonHOMEmos.png" alt="Home"></a>
+      <a href="art.html"><img src="images/buttonARTmos.png" alt="Art"></a>
+      <a href="shop.html"><img src="images/buttonSHOPmos.png" alt="Shop"></a>
+      <a href="blog.html"><img src="images/buttonBEANSmos.png" alt="Blog"></a>
+    </div>
+
+    <div class="logo-wrapper">
+      <a href="index.html">
+        <img src="images/websitelogo.png" alt="retrowonka logo" class="logo">
+      </a>
+    </div>
+  </div>
+</nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="heroart">
+    <h1 id="art-heading">blog</h1>
+  </section>
+
+<div class="blog-contain" id="blog-container"></div>
+  
+<div class="copyright" style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: -100px; margin-bottom: -400px;">
+  <p style="font-size: 60px; text-align: center;">
+    &copy; retrowonka 2025
+    <img src="images/copylogo.png" class="artlogo" alt="footer icon" style="height: 200px; vertical-align: middle; margin-left: -90px;">
+  </p>
+</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="about.html">about me</a>
+      <a href="contact.html">contact</a>
+      <a href="terms.html">terms</a>
+    </div>
+  </footer>
+<script src="js/parallax.js"></script>
+
+<script>
+  const phrases = [
+    "blog.exe",
+    "blog",
+    "crayz ideaz",
+    "thoughts",
+    "deep words",
+    "bl0g",
+    "messages from me"
+  ];
+
+  const random = Math.floor(Math.random() * phrases.length);
+  document.getElementById("art-heading").textContent = phrases[random];
+</script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/blog-loader.js"></script>
+</div>
+</body>
+</html>>

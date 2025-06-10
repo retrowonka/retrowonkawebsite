@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>retrowonka</title>
+  <link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="images/firefooter.gif">
+<link rel="preload" as="image" href="images/sky.png">
+<link rel="preload" as="image" href="images/chain-header.png">
+<link rel="preload" as="image" href="images/copylogo.png">
+</head>
+
+<body style="background-color: rgb(194, 210, 233);">
+<div class="scale-wrapper">
+  <div class="parallax-bg-art"></div>
+ <div class="art-page">
+  <!-- HEADER -->
+  <header>
+   <nav class="nav-chain">
+  <img src="images/chain-header.png" alt="header chain" class="chain-img">
+
+  <div class="nav-content">
+    <div class="nav-links">
+      <a href="index.html"><img src="images/buttonHOMEmos.png" alt="Home"></a>
+      <a href="art.html"><img src="images/buttonARTmos.png" alt="Art"></a>
+      <a href="shop.html"><img src="images/buttonSHOPmos.png" alt="Shop"></a>
+      <a href="blog.html"><img src="images/buttonBEANSmos.png" alt="Blog"></a>
+    </div>
+
+    <div class="logo-wrapper">
+      <a href="index.html">
+        <img src="images/websitelogo.png" alt="retrowonka logo" class="logo">
+      </a>
+    </div>
+  </div>
+</nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="heroart">
+    <h1 id="art-heading">art</h1>
+  </section>
+
+<section class="art-gallery">
+  <div class="art-tile">
+    <img src="images/art1f.png" alt="garden of wonka land" class="lightbox-thumb" data-art-id="art1f">
+    <p>garden of wonka land</p>
+  </div>
+  <div class="art-tile">
+    <img src="images/art2f.png" alt="skelewar" class="lightbox-thumb" data-art-id="art2f">
+    <p>skelewar</p>
+  </div>
+  <div class="art-tile">
+    <img src="images/art3f.png" alt="bitemyownswag" class="lightbox-thumb" data-art-id="art3f">
+    <p>bitemyownswag</p>
+  </div>
+  <div class="art-tile">
+    <img src="images/art4f.png" alt="wonkalps" class="lightbox-thumb" data-art-id="art4f">
+    <p>wonkalps</p>
+  </div>
+</section>
+
+  
+<div class="copyright"  style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: -100px; margin-bottom: -400px;">
+  <p style="font-size: 60px; text-align: center;">
+    &copy; retrowonka 2025
+    <img src="images/copylogo.png" class="artlogo" alt="footer icon" style="height: 200px; vertical-align: middle; margin-left: -90px;">
+  </p>
+</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="about.html">about me</a>
+      <a href="contact.html">contact</a>
+      <a href="terms.html">terms</a>
+    </div>
+  </footer>
+<script src="js/parallax.js"></script>
+<script>
+  const phrases = [
+    "artcore.exe",
+    "art",
+    "retrowonka.gallery",
+    "visual inventory",
+    "sketches of the damned",
+    "files from the abyss",
+    "artcor333",
+    "gaze upon art",
+    "images.html"
+  ];
+
+  const random = Math.floor(Math.random() * phrases.length);
+  document.getElementById("art-heading").textContent = phrases[random];
+</script>
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <div id="lightbox-content" class="lightbox-content"></div>
+  <img id="lightbox-close" class="lightbox-close" src="images/close-art.png" alt="Close">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxContent = document.getElementById('lightbox-content');
+  let scale = 1;
+  let posX = 0;
+  let posY = 0;
+  let isDragging = false;
+  let wasDragging = false;
+  let startX, startY;
+
+  // ✅ Open lightbox manually
+  function openLightboxFor(imgSrc) {
+    lightbox.style.display = 'flex';
+    lightboxContent.style.backgroundImage = `url('${imgSrc}')`;
+    scale = 1;
+    posX = 0;
+    posY = 0;
+    updateTransform();
+  }
+
+  // ✅ On image click
+  document.querySelectorAll('.lightbox-thumb').forEach(img => {
+    img.addEventListener('click', () => {
+      openLightboxFor(img.src);
+    });
+  });
+
+  // ✅ On close
+  lightbox.addEventListener('click', () => {
+    if (!wasDragging) {
+      lightbox.style.display = 'none';
+      lightboxContent.style.backgroundImage = '';
+    }
+  });
+
+  lightboxContent.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  lightbox.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.clientX - posX;
+    startY = e.clientY - posY;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDragging = false;
+    setTimeout(() => { wasDragging = false; }, 50);
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    wasDragging = true;
+    posX = e.clientX - startX;
+    posY = e.clientY - startY;
+    updateTransform();
+  });
+
+  lightbox.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const zoomSpeed = 0.1;
+    const delta = e.deltaY > 0 ? -zoomSpeed : zoomSpeed;
+    scale = Math.min(Math.max(0.5, scale + delta), 5);
+    updateTransform();
+  }, { passive: false });
+
+  function updateTransform() {
+    lightboxContent.style.transform = `scale(${scale}) translate(${posX / scale}px, ${posY / scale}px)`;
+  }
+
+  // ✅ Auto-open if URL has ?show=artX
+  const params = new URLSearchParams(window.location.search);
+  const artToShow = params.get("show");
+  if (artToShow) {
+    const target = document.querySelector(`.lightbox-thumb[data-art-id="${artToShow}"]`);
+    if (target) openLightboxFor(target.src);
+  }
+</script>
+</div>
+</div>
+</body>
+</html>
