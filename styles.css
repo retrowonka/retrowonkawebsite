@@ -1138,6 +1138,9 @@ footer {
     background-size: auto 100%;
     background-repeat: repeat-y;
     background-position: top center;
+    background-attachment: scroll !important;
+    position: absolute !important;
+    transform: none !important;
   }
 
 .blog-preview-grid {
