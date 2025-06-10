@@ -1200,6 +1200,12 @@ footer {
   transform:scale();
   margin-bottom:500px;
 }
+
+.about-section {
+  transform:scale(1.4);
+  transform-origin:center;
+}
+
 }
 
 @media (max-width: 480px) {
