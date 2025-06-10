@@ -1132,8 +1132,8 @@ footer {
   .parallax-bg-blog,
   .parallax-bg-about,
   .parallax-bg-contact,
-  .parallax-bg-shop,
-  .parallax-bg-terms {
+  .parallax-bg-shop
+   {
     height: 400vh;
     background-size: auto 100%;
     background-repeat: repeat-y;
@@ -1143,6 +1143,9 @@ footer {
     transform: none !important;
   }
 
+  .parallax-bg-terms{
+    height:1000vh;
+  }
 .blog-preview-grid {
   margin-top:100px;
   transform:scale(1.3);
@@ -1206,11 +1209,16 @@ footer {
   transform-origin:center;
 }
 
+.terms-container p{
+  font-size:90px;
+}
+
 }
 
 @media (max-width: 480px) {
   .scale-wrapper {
     transform: scale(0.25);
+    
   }
   .nav-content {
     width: 100%;
