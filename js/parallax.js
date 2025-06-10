@@ -1,12 +1,14 @@
 const bgClasses = [
   { selector: ".parallax-bg", factor: -0.3 },
-  { selector: ".parallax-bg-blog", factor: -0.5 },
   { selector: ".parallax-bg-about", factor: -0.5 },
   { selector: ".parallax-bg-contact", factor: -0.5 },
   { selector: ".parallax-bg-shop", factor: -0.5 },
   { selector: ".parallax-bg-terms", factor: -0.5 },
   { selector: ".parallax-bg-art", factor: -0.5 }
 ];
+
+// Only run parallax on desktop
+const isMobile = window.innerWidth < 910;
 
 function updateParallax() {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -18,5 +20,7 @@ function updateParallax() {
   });
 }
 
-window.addEventListener("scroll", updateParallax);
-window.addEventListener("load", updateParallax); // Trigger once on page load
+if (!isMobile) {
+  window.addEventListener("scroll", updateParallax);
+  window.addEventListener("load", updateParallax);
+}
