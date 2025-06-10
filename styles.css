@@ -649,7 +649,7 @@ html, body {
   margin-left: -50vw;        /* Cancel out container centering */
   margin-right: -50vw;
   padding: 40px 0;
-  background: url("images/blog-wastenew.gif") center/cover repeat-y;
+  background: url("images/blog-wastenew.webp") center/cover repeat-y;
   z-index: 0;
   image-rendering: smooth !important;
   overflow: hidden;
