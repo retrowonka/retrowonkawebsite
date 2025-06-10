@@ -1145,6 +1145,7 @@ footer {
 
   .parallax-bg-terms{
     height:1000vh;
+    background-repeat: repeat;
   }
 .blog-preview-grid {
   margin-top:100px;
@@ -1209,8 +1210,14 @@ footer {
   transform-origin:center;
 }
 
+.terms-container {
+  transform: translateY(600px);
+}
+
 .terms-container p{
   font-size:90px;
+  margin-top:-400px;
+  margin-bottom:-800px;
 }
 
 }
