@@ -3,8 +3,7 @@ const bgClasses = [
   { selector: ".parallax-bg-about", factor: -0.5 },
   { selector: ".parallax-bg-contact", factor: -0.5 },
   { selector: ".parallax-bg-shop", factor: -0.5 },
-  { selector: ".parallax-bg-terms", factor: -0.5 },
-  { selector: ".parallax-bg-art", factor: -0.5 }
+  { selector: ".parallax-bg-terms", factor: -0.5 }
 ];
 
 // Only run parallax on desktop
