@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DVRYH1YBV9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DVRYH1YBV9');
+</script>
+  <script>
+  const clickSound = new Audio('/sounds/click.mp3'); // adjust path if needed
+
+  document.addEventListener('mousedown', () => {
+    // clone needed so multiple clicks don't get cut off
+    const soundClone = clickSound.cloneNode();
+    soundClone.play().catch(() => {}); // ignore errors on autoplay
+  });
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>retrowonka.com</title>
