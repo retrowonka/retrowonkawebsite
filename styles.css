@@ -1126,24 +1126,8 @@ footer {
   display: flex;
   justify-content: center;
 }
-.parallax-bg,
-  .parallax-bg-about,
-  .parallax-bg-contact,
-  .parallax-bg-shop
-   {
-    height: 400vh;
-    background-size: auto 100%;
-    background-repeat: repeat-y;
-    background-position: top center;
-    background-attachment: scroll !important;
-    position: absolute !important;
-    transform: none !important;
-  }
 
-  .parallax-bg-terms{
-    height:1000vh;
-    background-repeat: repeat;
-  }
+
 .blog-preview-grid {
   margin-top:100px;
   transform:scale(1.3);
