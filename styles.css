@@ -500,11 +500,13 @@ html, body {
   width: 100%;
   box-sizing: border-box;
   border: none;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: visiblessss;
 }
 .art-tile {
   width: 45%;
   text-align: center;
+
 }
 
 .art-tile a {
