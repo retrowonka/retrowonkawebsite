@@ -501,7 +501,7 @@ html, body {
   box-sizing: border-box;
   border: none;
   overflow-y: auto;
-  overflow-x: visiblessss;
+  overflow-x: hidden;
 }
 .art-tile {
   width: 45%;
