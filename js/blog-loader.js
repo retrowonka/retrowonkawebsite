@@ -4,6 +4,7 @@ const singlePost = urlParams.get('post');
 
 // Load just one if specified, otherwise all
 const postFiles = singlePost ? [singlePost] : [
+  'post17.md',
   'post16.md',
   'post15.md',
   'post14.md',
