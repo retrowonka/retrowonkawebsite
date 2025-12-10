@@ -1,5 +1,5 @@
 ---
-title: petpo bokeh Øwayy donka
+title: petpo bokeh wonka donka
 date: 2025-12-08
 image: images/blog17.png
 ---
