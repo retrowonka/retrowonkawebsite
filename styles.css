@@ -1119,6 +1119,15 @@ footer {
     text-align: center;
   }
 
+  .shop-item {
+    scale:150%;
+    padding-bottom:100px;
+  }
+
+  .shop-btn {
+    scale:150%;
+  }
+
 .art-grid-wrapper {
   transform:scale(1);
   margin-left:0px;
